@@ -1,0 +1,7 @@
+
+<h1>Confirm Post Delete?</h1>
+
+<form action="{% url 'delete_post' post.id %}" method="Post">
+    {% csrf_token %}
+    <button type="submit">Yes</button>
+</form>

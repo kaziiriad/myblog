@@ -23,7 +23,7 @@ def get_post(request, pk):
 
 def create_post_form(request):
     
-    if request.method == POST:
+    if request.method == 'POST':
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
@@ -51,7 +51,7 @@ def update_post(request, pk):
 def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
-    if request.method == POST:
+    if request.method == 'POST':
         post.delete()
-        return redirect(home)
-    return render(request, 'comfirm_post_delete.html', {'post' : post})
+        return redirect('home')
+    return render(request, 'confirm_post_delete.html', {'post' : post})
